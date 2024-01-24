@@ -3,12 +3,16 @@ import groupBy from 'lodash/groupBy';
 import { useEffect, useState } from 'react';
 import './App.css';
 import axioss from 'axios';
-import { filter, isEmpty } from 'lodash';
+import { debounce, filter, isEmpty } from 'lodash';
+import Details from './Details';
+import {Link, Routes, Route, NavLink} from 'react-router-dom'
+import MainPage from './MainPage';
 
 function App() {
   const [departmentList, setDepartmentList] = useState([]);
   const [filtersList, setFilters] = useState(null);
   const [selectedFilters, setSelectedFilters] = useState({});
+  // const navigation = useNavigation();
   useEffect(() => {
     let groupCtegories = {};
     function getData(categories) {
@@ -31,11 +35,16 @@ function App() {
       setDepartmentList(groupCtegories);
     }
     async function getList() {
-      const res = await axioss.get('https://teknorix.jobsoid.com/api/v1/jobs');
+      let res = [];
+      if(!isEmpty(selectedFilters)) {
+        res = await axioss.get(`https://teknorix.jobsoid.com/api/v1/jobs?q=${selectedFilters.search}&loc=${selectedFilters.locationFilters}&dept=${selectedFilters.departmentFilters}&fun=${selectedFilters.functionFilters}`);
+      } else {
+        res = await axioss.get(`https://teknorix.jobsoid.com/api/v1/jobs`);
+      }
       getData(res.data)
     }
     getList()
-  }, [])
+  }, [selectedFilters])
   useEffect(() => {
     async function getFilters() {
       const departmentFilters = await axioss.get('https://teknorix.jobsoid.com/api/v1/departments');
@@ -59,7 +68,24 @@ function App() {
     setSelectedFilters(Object.assign({}, Object.values(selectedFilters).filter((filterTag)=>(filterTag !== items))))
   }
 
+  const debouncedOnChange = debounce(handleSelect, 500);
+
+  const handleNavigation = () => {
+    window.location.assign('/Details')
+  }
+
   return (
+  //   <div className="App">
+  //     <nav>
+  //       <NavLink to="/Details" className="left-side">
+  //         <span className="tooltiptext">View</span>
+  //       </NavLink>
+  //     </nav>
+  //   <Routes>
+  //         <Route path="/" element={<MainPage />} />
+  //         <Route path="/Details" element={<Details />} />
+  //     </Routes>
+  // </div>
     <div class="section-content">
       <div class="section-container">
         <div class="block">
@@ -74,12 +100,12 @@ function App() {
                       <p>Filter By</p>
                         <div>
                             <form action="/action_page.php">
-                              <input type="text" id="fname" name="firstname" placeholder="Search for Job" />
+                              <input type="text" id="search" name="search" value={selectedFilters.search} placeholder="Search for Job" onChange={debouncedOnChange}/>
                             </form>
                             </div>
                             <ul class="jw-filters">
                               <li>
-                              <select id="department" name="department" className='jw-custom-dropdown' onChange={handleSelect}>
+                              <select id="department" name="department" className='jw-custom-dropdown' onChange={debouncedOnChange}>
                               <option value="null" selected><p><i class="jw-icon-department"></i>Department <i
                                     class="jw-icon-chev-down"></i></p></option>
                                 {filtersList?.departmentFilters?.map((items, index) => (
@@ -88,7 +114,7 @@ function App() {
                               </select>
                               </li>
                               <li>
-                              <select id="location" name="location" className='jw-custom-dropdown' onChange={handleSelect}>
+                              <select id="location" name="location" className='jw-custom-dropdown' onChange={debouncedOnChange}>
                               <option value="null" selected><p><i class="jw-icon-department"></i>Location <i
                                     class="jw-icon-chev-down"></i></p></option>
                                 {filtersList?.locationFilters?.map((items, index) => (
@@ -97,7 +123,7 @@ function App() {
                               </select>
                               </li>
                               <li>
-                              <select id="function" name="function" className='jw-custom-dropdown' onChange={handleSelect}>
+                              <select id="function" name="function" className='jw-custom-dropdown' onChange={debouncedOnChange}>
                               <option value="null" selected><p><i class="jw-icon-department"></i>Function <i
                                     class="jw-icon-chev-down"></i></p></option>
                                 {filtersList?.functionFilters?.map((items, index) => (
@@ -137,11 +163,19 @@ function App() {
                                             class="jw-icon-location"></i>Verna, Goa</span><label
                                               class="jw-label-bordered">Full Time</label></div>
                                       </div>
+                                      {console.log(productsList.id)}
                                       <div class="jw-btn-footer">
                                         <div class="jw-actions"><a
                                           href="https://jobs.teknorix.com/apply/13644?source=Website"
-                                          target="_blank" class="jw-btn-primary">Apply</a><a
-                                            class="jw-btn-secondary" href="#/job-description/13644">View</a>
+                                          target="_blank" class="jw-btn-primary">Apply</a>
+                                           <nav>
+                                              <NavLink to="/Details" className="left-side">
+                                                <span class="jw-btn-primary">View</span>
+                                              </NavLink>
+                                            </nav>
+                                          <Routes>
+                                            <Route exact path='/Details' element={<Details jobId={productsList.id}/>}></Route>
+                                        </Routes>
                                         </div>
                                       </div>
                                     </li>

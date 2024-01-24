@@ -17,8 +17,13 @@ div.theme-bold .jw-jobs-list.jw-tiled li .jw-btn-secondary:hover {
   background-color: #D2D7E7;
 }
 div.theme-bold .jw-job-detail-container section.jw-header .jw-primary-actions .jw-btn-primary {
-  background: #ce362b;
-  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 0.9rem 1.5rem;
+  border-radius: 4rem;
+  box-shadow: none;
+  text-transform: none;
+  transition: all 0.15s ease-in-out;
 }
 div.theme-bold .jw-job-detail-container section.jw-job-details .jw-others-col .jw-share-openings div:hover i {
   color: #ce362b;
@@ -54,6 +59,13 @@ div.theme-default .jw-jobs-list.jw-tiled li .jw-btn-secondary:hover {
 div.theme-default .jw-job-detail-container section.jw-header .jw-primary-actions .jw-btn-primary {
   background: #4b96e6;
   color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 0.9rem 1.5rem;
+  border-radius: 4rem;
+  box-shadow: none;
+  text-transform: none;
+  transition: all 0.15s ease-in-out;
 }
 div.theme-default .jw-job-detail-container section.jw-job-details .jw-others-col .jw-share-openings div:hover i {
   color: #4b96e6;
@@ -89,6 +101,13 @@ div.theme-calm .jw-jobs-list.jw-tiled li .jw-btn-secondary:hover {
 div.theme-calm .jw-job-detail-container section.jw-header .jw-primary-actions .jw-btn-primary {
   background: #4ECDC4;
   color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 0.9rem 1.5rem;
+  border-radius: 4rem;
+  box-shadow: none;
+  text-transform: none;
+  transition: all 0.15s ease-in-out;
 }
 div.theme-calm .jw-job-detail-container section.jw-job-details .jw-others-col .jw-share-openings div:hover i {
   color: #4ECDC4;
@@ -124,6 +143,13 @@ div.theme-woody .jw-jobs-list.jw-tiled li .jw-btn-secondary:hover {
 div.theme-woody .jw-job-detail-container section.jw-header .jw-primary-actions .jw-btn-primary {
   background: #b19f48;
   color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 0.9rem 1.5rem;
+  border-radius: 4rem;
+  box-shadow: none;
+  text-transform: none;
+  transition: all 0.15s ease-in-out;
 }
 div.theme-woody .jw-job-detail-container section.jw-job-details .jw-others-col .jw-share-openings div:hover i {
   color: #b19f48;
@@ -159,6 +185,13 @@ div.theme-tangy .jw-jobs-list.jw-tiled li .jw-btn-secondary:hover {
 div.theme-tangy .jw-job-detail-container section.jw-header .jw-primary-actions .jw-btn-primary {
   background: #e86b3e;
   color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 0.9rem 1.5rem;
+  border-radius: 4rem;
+  box-shadow: none;
+  text-transform: none;
+  transition: all 0.15s ease-in-out;
 }
 div.theme-tangy .jw-job-detail-container section.jw-job-details .jw-others-col .jw-share-openings div:hover i {
   color: #e86b3e;
@@ -194,6 +227,13 @@ div.theme-fresh .jw-jobs-list.jw-tiled li .jw-btn-secondary:hover {
 div.theme-fresh .jw-job-detail-container section.jw-header .jw-primary-actions .jw-btn-primary {
   background: #3EAF5A;
   color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 0.9rem 1.5rem;
+  border-radius: 4rem;
+  box-shadow: none;
+  text-transform: none;
+  transition: all 0.15s ease-in-out;
 }
 div.theme-fresh .jw-job-detail-container section.jw-job-details .jw-others-col .jw-share-openings div:hover i {
   color: #3EAF5A;
@@ -216,10 +256,12 @@ div.theme-fresh .jw-checkbox-container:hover input ~ .jw-checkmark {
 .jw-widget-container {
   font-size: 14px;
   line-height: 1.42857143;
+  padding: 15px 20px 25px 40px;
 }
 .jw-widget-container p {
   margin-top: 0;
   margin-bottom: 6px;
+  font-size: 15px;
 }
 .jw-widget-container a,
 .jw-widget-container .jw-link {
@@ -835,10 +877,12 @@ p.jw-has-error {
   margin-top: 70px;
   font-weight: bold;
   font-size: 16px;
+  color: black;
 }
 .jw-job-detail-container section.jw-header h1.jw-section-title {
   font-size: 36px;
   margin: 6px 0 12px 0;
+  color: black;
 }
 .jw-job-detail-container section.jw-header i {
   color: #A6ADC9;
@@ -853,6 +897,15 @@ p.jw-has-error {
 }
 .jw-job-detail-container section.jw-header .jw-primary-actions .jw-btn-primary {
   min-width: 200px;
+  background: #4b96e6;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 0.9rem 1.5rem;
+  border-radius: 4rem;
+  box-shadow: none;
+  text-transform: none;
+  transition: all 0.15s ease-in-out;
 }
 .jw-job-detail-container section.jw-header .jw-primary-actions .jw-btn-primary:hover {
   opacity: 0.8;
