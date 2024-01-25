@@ -365,6 +365,11 @@ div.theme-fresh .jw-checkbox-container:hover input ~ .jw-checkmark {
   text-transform: uppercase;
   border: 1px solid transparent;
 }
+.icon-department{
+  color: #656C8A;
+  padding: 4px 5px 6px 3px;
+  margin-bottom: -9px;
+}
 .jw-btn-secondary:hover {
   background: #F5F8FC;
   border: 1px solid #F5F8FC;
@@ -1041,6 +1046,12 @@ a {
   margin-left: 12px;
 }
 
+.jw-widget-container .jw-current-openings .jw-jobs .jw-jobs-list > li {
+  font-size: 20px;
+  color: #2B2D38;
+  padding: 20px 0;
+}
+
 .jw-widget-container .jw-btn-primary, .jw-widget-container .jw-btn-secondary, .jw-widget-container .jw-btn-default {
   font-weight: bold;
   font-size: 16px;
@@ -1086,6 +1097,9 @@ a {
 }
 /*Responsive handling */
 @media (max-width: 768px) {
+  .jw-current-openings .jw-jobs {
+    padding: 20px 0;
+}
   .jw-current-openings .jw-filter-container:not(:empty) {
     font-size: 16px;
     padding: 20px;

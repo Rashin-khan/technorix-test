@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 
 const Details = (props) => {
-    console.log(props)
     return (
       <div className='jw-widget-container'>
             <div class="jw-job-detail-container">
